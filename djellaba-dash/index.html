@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>DJELLABA DASH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="hud off" id="hud">
+      <div><span class="lab">SCORE</span><b id="score">000000</b></div>
+      <div><span class="lab">COINS</span><b id="coins">0</b></div>
+      <div><span class="lab">WORLD</span><b id="world">1</b></div>
+      <div><span class="lab">TIME</span><b id="time">300</b></div>
+      <div><span class="lab">LIVES</span><b id="lives">3</b></div>
+    </div>
+    <div class="banner" id="banner"></div>
+
+    <div class="touch off" id="touch">
+      <div class="tl"><button id="tLeft">◀</button><button id="tRight">▶</button></div>
+      <div class="tr"><button id="tShoot">●</button><button id="tJump">▲</button></div>
+    </div>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="hero" aria-hidden="true"><svg viewBox="0 -10 80 112" width="96" height="134"><path d="M24 46 Q40 40 56 46 L66 88 Q40 94 14 88 Z" fill="#2f6fd6"/><path d="M40 45 L40 91" stroke="#f2c14e" stroke-width="2.4"/><path d="M15 84 Q40 90 65 84" stroke="#f2c14e" stroke-width="2" fill="none"/><g fill="#f2c14e"><circle cx="40" cy="56" r="1.9"/><circle cx="40" cy="66" r="1.9"/><circle cx="40" cy="76" r="1.9"/></g><ellipse cx="40" cy="46" rx="23" ry="7" fill="#2458b0"/><path d="M16 42 C10 20 28 6 48 -6 C42 8 62 14 64 42 Z" fill="#2458b0" stroke="#17387a" stroke-width="1.5"/><ellipse cx="40" cy="31" rx="18" ry="20" fill="#17387a"/><ellipse cx="40" cy="32" rx="14.5" ry="16.5" fill="#c98e5e"/><path d="M40 29 Q43 35 39 36" stroke="#783c1e" stroke-width="1.2" fill="none"/><g><ellipse cx="34" cy="29.5" rx="3.6" ry="3" fill="#fff"/><ellipse cx="46" cy="29.5" rx="3.6" ry="3" fill="#fff"/><circle cx="35.4" cy="29.5" r="1.8" fill="#1b1020"/><circle cx="47.4" cy="29.5" r="1.8" fill="#1b1020"/></g><path d="M30 24.5 L38 24 M42 24 L50 24.5" stroke="#1b1020" stroke-width="2" stroke-linecap="round"/><path d="M26 36 Q40 64 54 36 Q48 46 40 47 Q32 46 26 36 Z" fill="#2a1a14"/><path d="M30 38 Q40 32 50 38 Q40 41 30 38 Z" fill="#2a1a14"/><g fill="#2f6fd6"><ellipse cx="24" cy="62" rx="6.5" ry="12" transform="rotate(14 26 52)"/><ellipse cx="56" cy="62" rx="6.5" ry="12" transform="rotate(-14 54 52)"/></g><g fill="#c98e5e"><circle cx="21" cy="74" r="3.8"/><circle cx="59" cy="74" r="3.8"/></g><g fill="#f2b134"><path d="M24 96 Q26 88 36 90 Q44 88 48 92 Q42 97 24 96Z"/><path d="M40 96 Q42 88 52 90 Q60 88 64 92 Q58 97 40 96Z"/></g></svg><i class="shadow"></i></div>
+        <h1 class="title">DJELLABA<span>DASH</span></h1>
+        <p class="tagline">Cross the medina, the souk and the dunes to reach the riad.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <button class="btn2 hidden" id="contBtn">CONTINUE · WORLD <span id="contLvl">2</span></button>
+        <div class="controls">
+          <div><kbd>←</kbd> <kbd>→</kbd> / <kbd>A</kbd> <kbd>D</kbd> move · <kbd>Space</kbd> / <kbd>↑</kbd> jump (hold = higher)</div>
+          <div><kbd>Shift</kbd> run · <kbd>X</kbd> throw dates (with mint tea power) · <kbd>P</kbd> pause · <kbd>M</kbd> mute</div>
+          <div class="muted">Stomp scorpions · hit star blocks from below · avoid cactus &amp; hedgehogs</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pause">
+      <div class="panel small"><h2>PAUSED</h2><button class="btn" id="resumeBtn">RESUME</button></div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">GAME OVER</h2>
+        <div class="label">SCORE</div>
+        <div class="final-score" id="finalScore">0</div>
+        <div class="newbest hidden" id="newBest">★ NEW BEST ★</div>
+        <div class="stats">
+          <div><b id="finalWorld">1</b><span>world</span></div>
+          <div><b id="finalCoins">0</b><span>coins</span></div>
+          <div><b id="finalKills">0</b><span>stomps</span></div>
+        </div>
+        <div class="best">Best: <b id="bestOver">0</b></div>
+        <button class="btn" id="retryBtn">TRY AGAIN</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

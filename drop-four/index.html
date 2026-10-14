@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>DROP FOUR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ================= SETUP ================= -->
+    <div class="studio" id="menu">
+      <header class="s-head">
+        <a class="ib" href="../" aria-label="Back to hub">◀</a>
+        <h1 class="title">DROP<span>FOUR</span></h1>
+        <button class="ib" id="muteBtn" aria-label="Sound">🔊</button>
+      </header>
+
+      <div class="s-grid">
+        <aside class="side card">
+          <canvas id="pv" width="520" height="300"></canvas>
+          <div class="win-line">Wins vs computer: <b id="winsMenu">0</b></div>
+          <button class="play" id="playBtn">PLAY ▶</button>
+          <div class="keys">Click a column, or use <kbd>←</kbd> <kbd>→</kbd> + <kbd>Enter</kbd> / <kbd>1</kbd>-<kbd>9</kbd></div>
+        </aside>
+
+        <main class="opts">
+          <section class="card wide">
+            <h2>🎮 Game</h2>
+            <div class="lbl">Opponent</div>
+            <div class="chips" data-key="mode"><button data-v="ai">🤖 Computer</button><button data-v="local">👥 2 players (same screen)</button></div>
+            <div id="aiOpts">
+              <div class="lbl">Computer level</div>
+              <div class="chips" data-key="level"><button data-v="1">😊 Easy</button><button data-v="2">🙂 Medium</button><button data-v="3">😠 Hard</button><button data-v="4">💀 Expert</button></div>
+            </div>
+            <div class="lbl">Who starts?</div>
+            <div class="chips" data-key="first"><button data-v="p1">Player 1</button><button data-v="p2">Player 2</button><button data-v="rand">🎲 Random</button><button data-v="alt">🔁 Take turns</button></div>
+          </section>
+
+          <section class="card pcard" id="card1"></section>
+          <section class="card pcard" id="card2"></section>
+
+          <section class="card wide">
+            <h2>🧩 Board &amp; rules</h2>
+            <div class="lbl">Theme</div>
+            <div class="chips themes" data-key="theme" id="themeChips"></div>
+            <div class="two">
+              <div>
+                <div class="lbl">Board size</div>
+                <div class="chips" data-key="size"><button data-v="6x5">Mini</button><button data-v="7x6">Classic</button><button data-v="8x7">Large</button><button data-v="9x8">Huge</button></div>
+              </div>
+              <div>
+                <div class="lbl">Connect</div>
+                <div class="chips" data-key="n"><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button></div>
+              </div>
+            </div>
+            <div class="lbl">Variant</div>
+            <div class="chips" data-key="variant"><button data-v="classic">Classic</button><button data-v="pop">🔄 Pop Out <small>(remove your bottom token)</small></button></div>
+            <div class="two">
+              <div>
+                <div class="lbl">Turn timer</div>
+                <div class="chips" data-key="timer"><button data-v="0">Off</button><button data-v="10">10s</button><button data-v="20">20s</button><button data-v="30">30s</button></div>
+              </div>
+              <div>
+                <div class="lbl">Series</div>
+                <div class="chips" data-key="series"><button data-v="0">Endless</button><button data-v="3">Best of 3</button><button data-v="5">Best of 5</button></div>
+              </div>
+            </div>
+            <label class="sw"><input type="checkbox" id="hints" /><i></i> Hints &amp; undo buttons</label>
+            <button class="reset" id="resetBtn">↺ Reset all settings</button>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- ================= GAME ================= -->
+    <div class="game hidden" id="game">
+      <div class="g-top">
+        <button class="ib" id="menuBtn" aria-label="Settings">⚙</button>
+        <div class="pl" id="pl1"><canvas width="96" height="96"></canvas><div><b class="nm"></b><span class="sc">0</span></div></div>
+        <div class="mid"><div class="status" id="status">Your turn</div><div class="tbar hidden" id="tbar"><i id="tfill"></i></div></div>
+        <div class="pl right" id="pl2"><canvas width="96" height="96"></canvas><div><b class="nm"></b><span class="sc">0</span></div></div>
+        <button class="ib" id="muteBtn2" aria-label="Sound">🔊</button>
+      </div>
+      <div class="board-wrap" id="wrap"><canvas id="cv"></canvas></div>
+      <div class="g-bot">
+        <button class="btn2" id="undoBtn">↶ Undo</button>
+        <button class="btn2" id="hintBtn">💡 Hint</button>
+        <button class="btn2" id="restartBtn">↻ Restart</button>
+      </div>
+    </div>
+
+    <!-- ================= RESULT ================= -->
+    <div class="overlay hidden" id="result">
+      <div class="panel">
+        <div class="r-token"><canvas id="rTok" width="140" height="140"></canvas></div>
+        <h2 id="rTitle">Player 1 wins!</h2>
+        <p id="rSub"></p>
+        <div class="row">
+          <button class="play small" id="nextBtn">NEXT ROUND</button>
+          <button class="btn2" id="rMenuBtn">⚙ Settings</button>
+        </div>
+      </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

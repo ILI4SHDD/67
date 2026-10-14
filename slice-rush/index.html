@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>SLICE RUSH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Fredoka:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="hud off" id="hud">
+      <div class="hud-left"></div>
+      <div class="hud-center">
+        <div class="score" id="score">0</div>
+        <div class="chip">
+          <span class="chip-label">BEST</span><b id="bestHud">0</b>
+        </div>
+      </div>
+      <div class="hud-right">
+        <div class="lives" id="lives"></div>
+      </div>
+    </div>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="fruit-row" aria-hidden="true">
+          <span class="fr f1"></span><span class="fr f2"></span
+          ><span class="fr f3"></span>
+          <i class="slash"></i>
+        </div>
+        <h1 class="title">SLICE<span>RUSH</span></h1>
+        <p class="tagline">Swipe to slice. Dodge the bombs.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <div class="controls">
+          <div><b>Swipe</b> with your mouse or finger across the fruit</div>
+          <div>
+            Don't let fruit fall · Don't touch the <b class="red">bombs</b>
+          </div>
+          <div class="muted">
+            Slice 3+ in one swipe for a combo · Golden fruit = slow-mo
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">GAME OVER</h2>
+        <div class="final">
+          <div class="label">SCORE</div>
+          <div class="final-score" id="finalScore">0</div>
+          <div class="newbest hidden" id="newBest">✦ NEW BEST ✦</div>
+          <div class="stats">
+            <div><b id="finalSlices">0</b><span>fruits sliced</span></div>
+            <div><b id="finalChain">0</b><span>best swipe</span></div>
+          </div>
+          <div class="best">Best: <b id="bestOver">0</b></div>
+        </div>
+        <button class="btn" id="retryBtn">RETRY</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
