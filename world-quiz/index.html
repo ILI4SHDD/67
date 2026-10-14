@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>WORLD QUIZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="back-link" href="../">← Menu</a>
+
+    <!-- MENU -->
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="globe" aria-hidden="true"><i></i></div>
+        <h1 class="title">WORLD<span>QUIZ</span></h1>
+        <p class="tagline">Name all <b>196</b> countries in <b>15 minutes</b>.</p>
+        <ul class="rules">
+          <li>Type a country in <b>French or English</b> — accents don't matter</li>
+          <li>Abbreviations work (USA, UAE, UK, RDC…) and small typos are forgiven</li>
+          <li>Complete a continent to earn a <b>💡 hint</b></li>
+        </ul>
+        <div class="best">Best: <b id="bestMenu">0</b> / 196 <span id="bestTime"></span></div>
+        <button class="btn" id="startBtn">START</button>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <header class="top">
+        <div class="stat"><span>TIME</span><b id="timer">15:00</b></div>
+        <div class="entry">
+          <input id="answer" type="text" placeholder="Type a country…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" disabled />
+          <div class="msg" id="msg"></div>
+        </div>
+        <div class="stat"><span>FOUND</span><b id="found">0</b><small>/ 196</small></div>
+      </header>
+      <div class="bar"><i id="barFill"></i></div>
+      <div class="actions">
+        <button class="btn2" id="hintBtn" disabled>💡 HINT <b id="hintN">0</b></button>
+        <div class="hintbox" id="hintBox">Complete a continent to earn a hint.</div>
+        <button class="btn2 danger" id="giveUp" disabled>GIVE UP</button>
+      </div>
+      <div id="grid"></div>
+    </main>
+
+    <div class="overlay hidden" id="end">
+      <div class="panel">
+        <h2 id="endTitle">TIME'S UP</h2>
+        <div class="label">COUNTRIES FOUND</div>
+        <div class="big"><span id="endScore">0</span><small>/196</small></div>
+        <div class="newbest hidden" id="newBest">★ NEW BEST ★</div>
+        <div class="break" id="endBreak"></div>
+        <p class="sub">Missing countries are shown in red in the grid.</p>
+        <div class="row"><button class="btn" id="againBtn">PLAY AGAIN</button><button class="btn2" id="reviewBtn">REVIEW GRID</button></div>
+      </div>
+    </div>
+    <div class="toasts" id="toasts"></div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

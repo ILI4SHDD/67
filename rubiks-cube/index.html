@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>RUBIK'S CUBE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="top">
+        <a class="ib" href="../" aria-label="Back to hub">◀</a>
+        <div class="stats">
+          <div class="st"><small>TIME</small><b id="time">0:00.00</b></div>
+          <div class="st"><small>MOVES</small><b id="moves">0</b></div>
+          <div class="st"><small>BEST</small><b id="best">—</b></div>
+        </div>
+        <div class="chips sizes" id="sizes"><button data-n="2">2×2</button><button data-n="3">3×3</button><button data-n="4">4×4</button></div>
+        <button class="ib" id="setBtn" aria-label="Customize">⚙</button>
+      </div>
+
+      <div class="stage" id="stage">
+        <canvas id="cv"></canvas>
+        <div class="hint" id="hint">Drag a sticker to turn a layer · drag the background to rotate the cube</div>
+      </div>
+
+      <div class="bar">
+        <button class="btn main" id="scrBtn">🔀 Scramble</button>
+        <button class="btn" id="undoBtn">↶ Undo</button>
+        <button class="btn" id="solveBtn">✨ Solve</button>
+        <button class="btn" id="resetBtn">↺ Reset</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="panel">
+      <div class="sheet">
+        <div class="sh-head"><h2>🎨 Customize</h2><button class="ib" id="closePanel" aria-label="Close">✕</button></div>
+
+        <div class="lbl">Color scheme</div>
+        <div class="chips" id="schemes"></div>
+        <div class="pick" id="picks"></div>
+
+        <div class="lbl">Sticker style</div>
+        <div class="chips" id="styles"><button data-v="round">Rounded</button><button data-v="flat">Flat</button><button data-v="tiles">Tiles</button></div>
+
+        <div class="lbl">Cube body</div>
+        <div class="chips" id="bodies"></div>
+
+        <div class="lbl">Background</div>
+        <div class="chips" id="bgs"><button data-v="dark">Night</button><button data-v="ocean">Ocean</button><button data-v="sunset">Sunset</button><button data-v="forest">Forest</button><button data-v="light">Light</button></div>
+
+        <div class="lbl">Turn speed <b id="spdVal">1×</b></div>
+        <input type="range" id="speed" min="0.5" max="3" step="0.25" />
+
+        <label class="sw"><input type="checkbox" id="spin" /><i></i> Auto-rotate view</label>
+        <label class="sw"><input type="checkbox" id="viewDrag" /><i></i> Dragging the cube rotates the view (shift-drag turns on desktop)</label>
+        <label class="sw"><input type="checkbox" id="sound" /><i></i> Sound</label>
+
+        <div class="lbl">Patterns <small>(3×3)</small></div>
+        <div class="chips" id="patterns"></div>
+
+        <div class="lbl">Controls</div>
+        <div class="keys">
+          Drag a sticker: turn that layer · Drag background / <kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd>: rotate view · Wheel / pinch: zoom<br />
+          <kbd>U</kbd> <kbd>D</kbd> <kbd>L</kbd> <kbd>R</kbd> <kbd>F</kbd> <kbd>B</kbd> (+<kbd>Shift</kbd> = counter-clockwise) · <kbd>M</kbd> <kbd>E</kbd> <kbd>S</kbd> middle slices (3×3)<br />
+          <kbd>Enter</kbd> scramble · <kbd>Backspace</kbd> undo
+        </div>
+        <button class="btn" id="defBtn">↺ Reset settings</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="result">
+      <div class="panel">
+        <div class="trophy">🏆</div>
+        <h2 id="rTitle">Solved!</h2>
+        <p id="rSub"></p>
+        <div class="row">
+          <button class="btn main" id="againBtn">🔀 Scramble again</button>
+          <button class="btn" id="closeRes">Close</button>
+        </div>
+      </div>
+    </div>
+    <canvas id="confetti"></canvas>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>BOUNCE BASH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="hud off" id="hud">
+      <div class="hud-l"><span class="lab">SCORE</span><b id="score">0</b></div>
+      <div class="hud-c"><span class="lab">LEVEL</span><b id="level">1</b></div>
+      <div class="hud-r">
+        <span class="lab">LIVES</span><b id="lives">♥♥♥</b>
+      </div>
+    </div>
+    <div class="combo" id="combo"></div>
+    <div class="banner" id="banner"></div>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="logo" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><u></u>
+        </div>
+        <h1 class="title">BOUNCE<span>BASH</span></h1>
+        <p class="tagline">Smash every brick. Catch every power-up.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <div class="controls">
+          <div>
+            <b>Mouse</b> or <b>finger</b> to move · <kbd>←</kbd> <kbd>→</kbd> /
+            <kbd>A</kbd> <kbd>D</kbd>
+          </div>
+          <div>
+            <kbd>Space</kbd> or click to launch · <kbd>P</kbd> pause ·
+            <kbd>M</kbd> mute
+          </div>
+          <div class="pu">
+            <span style="--c: #4dc3ff">W</span> wide
+            <span style="--c: #c77dff">M</span> multi-ball
+            <span style="--c: #4dff9a">S</span> slow
+            <span style="--c: #ff7a3d">F</span> fireball
+            <span style="--c: #ff4d6d">♥</span> life
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pause">
+      <div class="panel small">
+        <h2>PAUSED</h2>
+        <button class="btn" id="resumeBtn">RESUME</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">GAME OVER</h2>
+        <div class="label">SCORE</div>
+        <div class="final-score" id="finalScore">0</div>
+        <div class="newbest hidden" id="newBest">★ NEW BEST ★</div>
+        <div class="stats">
+          <div><b id="finalLevel">1</b><span>level</span></div>
+          <div><b id="finalBricks">0</b><span>bricks</span></div>
+          <div><b id="finalCombo">0</b><span>best combo</span></div>
+        </div>
+        <div class="best">Best: <b id="bestOver">0</b></div>
+        <button class="btn" id="retryBtn">RETRY</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

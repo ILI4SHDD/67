@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>COSMO HOP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="hud off" id="hud">
+      <div class="hud-side">
+        <div class="chip">
+          <span class="chip-label">BEST</span><b id="bestHud">0 m</b>
+        </div>
+      </div>
+      <div class="hud-center">
+        <div class="height" id="height">0<small> m</small></div>
+      </div>
+      <div class="hud-side right">
+        <div class="chip star"><span>★</span><b id="stars">0</b></div>
+      </div>
+    </div>
+
+    <button class="icon-btn hidden" id="pauseBtn" aria-label="Pause">❚❚</button>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="orb"></div>
+        <h1 class="title">COSMO<span>HOP</span></h1>
+        <p class="tagline">
+          Hop from platform to platform, all the way to the stars.
+        </p>
+        <div class="best">Best: <b id="bestMenu">0 m</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <div class="controls">
+          <div>
+            <kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd> or
+            <b>mouse / finger</b>
+          </div>
+          <div><kbd>P</kbd> pause &nbsp;·&nbsp; <kbd>M</kbd> sound</div>
+          <div class="muted">
+            Springs = super jump · Fragile platforms crumble!
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pause">
+      <div class="panel small">
+        <h2>PAUSE</h2>
+        <button class="btn" id="resumeBtn">RESUME</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">YOU FELL!</h2>
+        <div class="final">
+          <div class="label">HEIGHT</div>
+          <div class="final-score" id="finalScore">0 m</div>
+          <div class="final-stars" id="finalStars">★ 0</div>
+          <div class="newbest hidden" id="newBest">✦ NEW BEST ✦</div>
+          <div class="best">Best: <b id="bestOver">0 m</b></div>
+        </div>
+        <button class="btn" id="retryBtn">RETRY</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

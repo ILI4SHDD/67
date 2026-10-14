@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>BUDDY SMASH</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="top">
+        <a class="ib" href="../" aria-label="Back to hub">◀</a>
+        <div class="mid">
+          <div class="nm-row"><b id="bname">Buddy</b><span class="dmg">💥 <b id="score">0</b></span><span class="combo" id="combo"></span></div>
+          <div class="hp"><i id="hpfill"></i></div>
+        </div>
+        <button class="ib" id="slowBtn" aria-label="Slow motion" title="Slow motion">⏱</button>
+        <button class="ib" id="standBtn" aria-label="Heal and stand up" title="Heal &amp; stand up">🧍</button>
+        <button class="ib" id="cleanBtn" aria-label="Clean" title="Clean the walls">🧽</button>
+        <button class="ib" id="setBtn" aria-label="Customize" title="Customize">🎨</button>
+      </div>
+      <div class="stage"><canvas id="cv"></canvas><div class="hint" id="hint">Tap 🎨 to put any face on your buddy!</div></div>
+      <div class="tools" id="tools"></div>
+    </div>
+
+    <div class="overlay hidden" id="panel">
+      <div class="sheet">
+        <div class="sh-head"><h2>🎨 Your buddy</h2><button class="ib" id="closePanel" aria-label="Close">✕</button></div>
+
+        <div class="lbl">Face</div>
+        <div class="face-row">
+          <canvas id="facePv" width="96" height="96"></canvas>
+          <div>
+            <label class="btn main up">📷 Upload a picture<input type="file" id="headFile" accept="image/*" hidden /></label>
+            <button class="btn" id="faceDef">🙂 Default face</button>
+          </div>
+        </div>
+        <div class="emoji-grid" id="emojis"></div>
+
+        <div class="lbl">Name</div>
+        <input type="text" id="nameIn" maxlength="14" />
+
+        <div class="lbl">Outfit</div>
+        <div class="pick" id="picks">
+          <label>Skin<input type="color" id="skin" /></label>
+          <label>Shirt<input type="color" id="shirt" /></label>
+          <label>Pants<input type="color" id="pants" /></label>
+        </div>
+        <div class="lbl">Body size <b id="szv"></b></div>
+        <input type="range" id="size" min="0.7" max="1.3" step="0.05" />
+        <div class="lbl">Head size <b id="hsv"></b></div>
+        <input type="range" id="headSize" min="0.7" max="2" step="0.05" />
+
+        <div class="lbl">Room</div>
+        <div class="chips" id="rooms"></div>
+        <div class="lbl">Gravity</div>
+        <div class="chips" id="gravs"><button data-v="1">🌍 Earth</button><button data-v="0.35">🌙 Moon</button><button data-v="1.8">🪐 Heavy</button><button data-v="0.06">🛰 Zero-G</button></div>
+
+        <label class="sw"><input type="checkbox" id="hang" /><i></i> Hang him from a hook</label>
+        <label class="sw"><input type="checkbox" id="sound" /><i></i> Sound</label>
+        <div class="keys">Everything is local — your pictures never leave this device. No real people were harmed: it's a stuffed dummy 🧸</div>
+        <button class="btn main" id="doneBtn">DONE</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
