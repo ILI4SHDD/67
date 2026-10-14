@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>YALLA FALAFEL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="rain" id="rain"></div>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="app">
+      <section class="left">
+        <h1 class="title">YALLA<span>FALAFEL</span></h1>
+        <div class="shopname"><input id="shopName" maxlength="22" value="Bubbe's Falafel Shop" aria-label="Shop name" /></div>
+        <div class="counter"><b id="count">0</b><span id="countLbl">falafels</span></div>
+        <div class="cps">per second: <b id="cps">0</b></div>
+        <div class="buffs" id="buffs"></div>
+        <div class="bigwrap">
+          <div class="rays"></div>
+          <button class="big" id="big" aria-label="Make a falafel">
+            <svg viewBox="0 0 200 200">
+              <defs><radialGradient id="fg" cx=".35" cy=".28"><stop offset="0" stop-color="#f0c070"/><stop offset=".55" stop-color="#bb7a30"/><stop offset="1" stop-color="#6e3d12"/></radialGradient></defs>
+              <ellipse cx="100" cy="186" rx="64" ry="9" fill="rgba(0,0,0,.3)"/>
+              <circle cx="100" cy="98" r="88" fill="url(#fg)"/>
+              <g fill="#5c8f2e"><ellipse cx="62" cy="70" rx="7" ry="3.5" transform="rotate(30 62 70)"/><ellipse cx="128" cy="62" rx="6" ry="3" transform="rotate(-40 128 62)"/><ellipse cx="90" cy="132" rx="7" ry="3.4" transform="rotate(15 90 132)"/><ellipse cx="146" cy="116" rx="6" ry="3" transform="rotate(60 146 116)"/><ellipse cx="52" cy="112" rx="5" ry="2.6" transform="rotate(-20 52 112)"/><ellipse cx="108" cy="92" rx="6" ry="3" transform="rotate(-10 108 92)"/><ellipse cx="78" cy="48" rx="5" ry="2.6" transform="rotate(50 78 48)"/></g>
+              <g fill="#f6e3b0"><circle cx="76" cy="96" r="2.4"/><circle cx="120" cy="124" r="2.4"/><circle cx="102" cy="58" r="2.2"/><circle cx="140" cy="86" r="2.2"/><circle cx="66" cy="136" r="2.2"/><circle cx="96" cy="112" r="2"/></g>
+              <ellipse cx="72" cy="52" rx="26" ry="14" fill="rgba(255,255,255,.28)" transform="rotate(-30 72 52)"/>
+            </svg>
+          </button>
+        </div>
+        <div class="tools"><button class="btn2" id="statsBtn">STATS & ACHIEVEMENTS</button><button class="btn2" id="muteBtn">SOUND: ON</button></div>
+      </section>
+
+      <section class="right">
+        <div class="news" id="news">Welcome! Your first falafel is just one click away.</div>
+        <div class="panel"><h3>UPGRADES</h3><div class="upgrades" id="upgrades"></div></div>
+        <div class="panel grow">
+          <div class="storehead"><h3>THE SHUK</h3><div class="seg" id="buyAmt"><button data-n="1" class="sel">×1</button><button data-n="10">×10</button><button data-n="100">×100</button></div></div>
+          <div class="buildings" id="buildings"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="tip hidden" id="tip"></div>
+    <div class="toasts" id="toasts"></div>
+    <div class="golden hidden" id="golden" title="Golden challah!">🥖</div>
+
+    <div class="modal hidden" id="modal">
+      <div class="card">
+        <button class="x" id="closeModal">✕</button>
+        <h2>STATS</h2>
+        <div class="stats" id="stats"></div>
+        <h2>ACHIEVEMENTS <small id="achCount"></small></h2>
+        <div class="ach" id="ach"></div>
+        <button class="btn2 danger" id="resetBtn">RESET PROGRESS</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

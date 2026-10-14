@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>PRISM BLOCKS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="hud off" id="hud">
+      <div class="hud-left"></div>
+      <div class="hud-center">
+        <div class="label">SCORE</div>
+        <div class="score" id="score">0</div>
+        <div class="combo" id="combo"></div>
+      </div>
+      <div class="hud-right">
+        <div class="chip">
+          <span class="chip-label">BEST</span><b id="bestHud">0</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="mini-art" aria-hidden="true">
+          <i style="--h: 190"></i><i style="--h: 190"></i
+          ><i style="--h: 330"></i> <i style="--h: 45"></i
+          ><i style="--h: 265"></i><i style="--h: 265"></i>
+        </div>
+        <h1 class="title">PRISM<span>BLOCKS</span></h1>
+        <p class="tagline">Drag the blocks. Clear the lines.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <div class="controls">
+          <div><b>Drag &amp; drop</b> the pieces onto the grid</div>
+          <div>Fill a full row or column to clear it</div>
+          <div class="muted">
+            Chain clears for combos · The game ends when no piece fits
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">NO MOVES LEFT</h2>
+        <div class="final">
+          <div class="label">SCORE</div>
+          <div class="final-score" id="finalScore">0</div>
+          <div class="newbest hidden" id="newBest">✦ NEW BEST ✦</div>
+          <div class="best">Best: <b id="bestOver">0</b></div>
+        </div>
+        <button class="btn" id="retryBtn">RETRY</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

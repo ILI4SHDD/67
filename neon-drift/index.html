@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>NEON DRIFT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <a class="back-link" href="../">← Menu</a>
+
+    <!-- HUD -->
+    <div class="hud" id="hud">
+      <div class="hud-left">
+        <div class="label">SCORE</div>
+        <div class="score" id="score">0</div>
+        <div class="combo" id="combo"></div>
+      </div>
+      <div class="hud-right">
+        <div class="hearts" id="hearts"></div>
+        <div class="buffs" id="buffs"></div>
+      </div>
+      <div class="dash-wrap">
+        <div class="dash-bar"><div class="dash-fill" id="dashFill"></div></div>
+        <div class="dash-label">DASH</div>
+      </div>
+    </div>
+
+    <button class="icon-btn" id="pauseBtn" aria-label="Pause">❚❚</button>
+    <button class="dash-btn" id="dashBtn">DASH</button>
+
+    <!-- Menu -->
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <h1 class="title">NEON<span>DRIFT</span></h1>
+        <p class="tagline">Survive. Chain. Blow everything up.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <div class="controls">
+          <div>
+            <kbd>W A S D</kbd> / <kbd>↑ ← ↓ →</kbd> or <b>mouse / finger</b> to
+            move
+          </div>
+          <div>
+            <kbd>SPACE</kbd> dash &nbsp;·&nbsp; <kbd>P</kbd> pause &nbsp;·&nbsp;
+            <kbd>M</kbd> sound
+          </div>
+          <div class="muted">Shooting is automatic. Grab the power-ups!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pause -->
+    <div class="overlay hidden" id="pause">
+      <div class="panel small">
+        <h2>PAUSE</h2>
+        <button class="btn" id="resumeBtn">RESUME</button>
+      </div>
+    </div>
+
+    <!-- Game over -->
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">GAME OVER</h2>
+        <div class="final">
+          <div class="label">SCORE</div>
+          <div class="final-score" id="finalScore">0</div>
+          <div class="newbest hidden" id="newBest">★ NEW BEST ★</div>
+          <div class="best">Best: <b id="bestOver">0</b></div>
+        </div>
+        <button class="btn" id="retryBtn">RETRY</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>BULLSEYE BLITZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rye&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+
+    <a class="icon-btn back" href="../" aria-label="Back to hub">◀</a>
+    <button class="icon-btn" id="pauseBtn" aria-label="Pause">❚❚</button>
+    <button class="icon-btn mute" id="muteBtn" aria-label="Sound">🔊</button>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <h1 class="title">BULLSEYE<span>BLITZ</span></h1>
+        <p class="tagline">Step right up! 60 seconds at the gallery.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">PLAY</button>
+        <ul class="legend">
+          <li><i class="lg disc"></i> Discs <small>25 · 50 · 100 by ring</small></li>
+          <li><i class="lg bird"></i> Tin birds <small>75</small></li>
+          <li><i class="lg balloon"></i> Balloons <small>30</small></li>
+          <li><i class="lg clock"></i> Clock <small>+4 sec</small></li>
+          <li><i class="lg star"></i> Star <small>×2 points, 8 sec</small></li>
+          <li class="bad"><i class="lg bomb"></i> Bomb <small>DON'T SHOOT! −100 &amp; −3 sec</small></li>
+        </ul>
+        <div class="controls">
+          <div><b>Click / tap</b> to shoot · <kbd>R</kbd> or <b>right-click</b> to reload</div>
+          <div><kbd>P</kbd> pause · <kbd>M</kbd> sound · Chain hits for up to <b>×5</b>, a miss breaks the combo</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pause">
+      <div class="panel small">
+        <h2>PAUSED</h2>
+        <button class="btn" id="resumeBtn">RESUME</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">TIME'S UP!</h2>
+        <div class="final-score" id="finalScore">0</div>
+        <div class="newbest hidden" id="newBest">★ NEW RECORD ★</div>
+        <div class="stats">
+          <div><span>Accuracy</span><b id="stAcc">0%</b></div>
+          <div><span>Hits</span><b id="stHits">0</b></div>
+          <div><span>Best combo</span><b id="stCombo">0</b></div>
+          <div><span>Record</span><b id="bestOver">0</b></div>
+        </div>
+        <div class="rank" id="rank"></div>
+        <button class="btn" id="retryBtn">SHOOT AGAIN</button>
+      </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
