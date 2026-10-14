@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>HYPER LANE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <div class="flash" id="flash"></div>
+    <a class="back-link" href="../">← Menu</a>
+
+    <div class="hud off" id="hud">
+      <div class="hud-l"><span class="lab">SCORE</span><b id="score">0</b></div>
+      <div class="hud-c"><span class="lab">ORBS</span><b id="orbs">0</b></div>
+      <div class="hud-r"><span class="lab">SPEED</span><b id="speed">0</b></div>
+    </div>
+    <div class="combo" id="combo"></div>
+    <div class="banner" id="banner"></div>
+
+    <div class="overlay" id="menu">
+      <div class="panel">
+        <div class="logo" aria-hidden="true"><i></i><u></u></div>
+        <h1 class="title">HYPER<span>LANE</span></h1>
+        <p class="tagline">Fly the neon track. Dodge, jump, grab every orb.</p>
+        <div class="best">Best score: <b id="bestMenu">0</b></div>
+        <button class="btn" id="playBtn">LAUNCH</button>
+        <button class="btn2" id="skinBtn">
+          <span class="thumb" id="skinThumb"></span>DRAW YOUR SHIP
+        </button>
+        <div class="controls">
+          <div>
+            <kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd> <kbd>D</kbd> switch lane ·
+            <kbd>Space</kbd> / <kbd>↑</kbd> jump
+          </div>
+          <div>
+            On a phone: <b>swipe</b> left/right to switch lane,
+            <b>swipe up</b> or tap to jump
+          </div>
+          <div class="pu">
+            <span style="--c: #ff3b6b">▮</span> wall: change lane
+            <span style="--c: #ffb020">▬</span> barrier: jump
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="skin">
+      <div class="panel skin-panel">
+        <h2>DRAW YOUR SHIP</h2>
+        <p class="hint">
+          Draw it as seen from behind, <b>nose pointing up</b>. Your drawing
+          becomes your ship in 3D.
+        </p>
+        <div class="pad">
+          <canvas id="draw" width="360" height="360"></canvas>
+        </div>
+        <div class="tools">
+          <div class="swatches" id="swatches"></div>
+          <input
+            type="color"
+            id="colorPick"
+            value="#19e6ff"
+            title="Pick a color"
+          />
+          <label class="size"
+            >Size
+            <input type="range" id="brushSize" min="3" max="40" value="12"
+          /></label>
+        </div>
+        <div class="tools">
+          <button class="tool on" id="toolBrush">✏️ Brush</button>
+          <button class="tool" id="toolErase">🧽 Eraser</button>
+          <button class="tool on" id="toolMirror">🪞 Mirror</button>
+          <button class="tool" id="toolUndo">↩ Undo</button>
+          <button class="tool" id="toolClear">🗑 Clear</button>
+        </div>
+        <div class="tools end">
+          <button class="btn" id="skinSave">USE THIS SHIP</button>
+          <button class="btn3" id="skinDefault">Default ship</button>
+          <button class="btn3" id="skinCancel">Cancel</button>
+        </div>
+        <div class="err" id="skinErr"></div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="pause">
+      <div class="panel small">
+        <h2>PAUSED</h2>
+        <button class="btn" id="resumeBtn">RESUME</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="over">
+      <div class="panel">
+        <h2 class="over-title">CRASHED!</h2>
+        <div class="label">SCORE</div>
+        <div class="final-score" id="finalScore">0</div>
+        <div class="newbest hidden" id="newBest">★ NEW BEST ★</div>
+        <div class="stats">
+          <div><b id="finalDist">0</b><span>meters</span></div>
+          <div><b id="finalOrbs">0</b><span>orbs</span></div>
+          <div><b id="finalSpeed">0</b><span>top km/h</span></div>
+        </div>
+        <div class="best">Best: <b id="bestOver">0</b></div>
+        <button class="btn" id="retryBtn">RETRY</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

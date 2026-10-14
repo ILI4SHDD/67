@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>DIAL IN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg"><i></i><i></i><i></i></div>
+    <a class="back-link" href="../">← Menu</a>
+
+    <!-- MENU -->
+    <section class="screen" id="menu">
+      <div class="logo" aria-hidden="true">
+        <span class="ring r1"></span><span class="ring r2"></span
+        ><span class="ring r3"></span><span class="dot"></span>
+      </div>
+      <h1 class="title">DIAL<span>IN</span></h1>
+      <p class="tagline">
+        Two memory games for your senses. Hear it. See it. Recreate it.
+      </p>
+
+      <div class="modes">
+        <button class="mode sel" data-mode="pitch">
+          <b>♪</b><strong>PITCH</strong
+          ><small>Memorize a tone, then tune it back</small>
+        </button>
+        <button class="mode" data-mode="color">
+          <b class="rainbow">◍</b><strong>COLOR</strong
+          ><small>Memorize a color, then mix it back</small>
+        </button>
+      </div>
+      <div class="seg" id="diffSeg">
+        <button data-diff="easy" class="sel">EASY</button
+        ><button data-diff="hard">HARD</button>
+      </div>
+      <button class="btn" id="startBtn">START</button>
+      <div class="bests" id="bests"></div>
+      <p class="how">
+        5 rounds · the closer you are, the more points (max 100 per round) ·
+        share the exact same rounds with a friend through a challenge link
+      </p>
+    </section>
+
+    <!-- GAME -->
+    <section class="screen hidden" id="game">
+      <div class="topbar">
+        <div class="dots" id="dots"></div>
+        <div class="phase" id="phase">LISTEN</div>
+        <div class="sc">SCORE <b id="runScore">0</b></div>
+      </div>
+      <div class="stage" id="stage">
+        <canvas id="viz"></canvas>
+        <div class="stage-msg" id="stageMsg"></div>
+        <div class="reveal hidden" id="reveal"></div>
+      </div>
+      <div class="timer"><i id="timerBar"></i></div>
+      <div class="controls" id="controls">
+        <div class="padwrap">
+          <div class="pad" id="pad">
+            <span class="padhint" id="padHint"></span
+            ><i class="knob" id="knob"></i>
+          </div>
+          <div class="lightwrap hidden" id="lightWrap">
+            <label>LIGHT</label
+            ><input
+              type="range"
+              id="light"
+              min="10"
+              max="90"
+              value="50"
+              orient="vertical"
+            />
+          </div>
+        </div>
+        <button class="btn lock" id="lockBtn">LOCK IN</button>
+      </div>
+      <button class="btn next hidden" id="nextBtn">NEXT ▶</button>
+    </section>
+
+    <!-- FINAL -->
+    <section class="screen hidden" id="final">
+      <div class="label">TOTAL</div>
+      <div class="big" id="finalScore">0</div>
+      <div class="rank" id="rank"></div>
+      <div class="newbest hidden" id="newBest">★ NEW BEST ★</div>
+      <div class="rounds" id="roundList"></div>
+      <div class="share">
+        <input id="shareLink" readonly /><button class="btn2" id="copyBtn">
+          COPY CHALLENGE LINK
+        </button>
+      </div>
+      <div class="row">
+        <button class="btn" id="againBtn">NEW ROUNDS</button
+        ><button class="btn2" id="menuBtn">MENU</button>
+      </div>
+    </section>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

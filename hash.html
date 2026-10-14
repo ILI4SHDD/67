@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OVERDRIVE hash tool</title>
+<style>body{font:16px system-ui;background:#0d1026;color:#fff;display:grid;place-items:center;min-height:100vh;margin:0}
+.b{width:min(440px,92vw);background:#1a1f45;border-radius:16px;padding:24px;display:grid;gap:12px}
+input,textarea{padding:12px;border-radius:10px;border:1px solid #3a4180;background:#0d1026;color:#fff;font:inherit;width:100%;box-sizing:border-box}
+button{padding:12px;border:0;border-radius:10px;background:#7c5cff;color:#fff;font:700 16px system-ui;cursor:pointer}
+small{opacity:.7}</style></head><body><div class="b">
+<h2 style="margin:0">Account line generator</h2>
+<input id="u" placeholder="username" autocomplete="off"><input id="p" placeholder="password" autocomplete="off">
+<button id="go">Generate</button><textarea id="o" rows="3" readonly placeholder="Copy this line into accounts.js"></textarea>
+<small>Local tool: nothing is sent anywhere. It is not part of the published site.</small></div>
+<script>
+document.getElementById('go').onclick=async()=>{const u=document.getElementById('u').value.trim().toLowerCase(),p=document.getElementById('p').value;
+if(!u||!p)return;const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('overdrive|'+u+'|'+p));
+const h=[...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,'0')).join('');document.getElementById('o').value="  '"+u+"': '"+h+"',";};
+</script></body></html>

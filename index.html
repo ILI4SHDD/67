@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>67.fun — Free browser games</title>
+    <meta name="description" content="67.fun: a collection of free browser games. Play instantly, no download." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Orbitron:wght@800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="hub.css" />
+    <link rel="stylesheet" href="portal.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="67.fun home"><span class="bolt">⚡</span><span class="word">67<b>.FUN</b></span></a>
+      <label class="search"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search games" autocomplete="off" /><kbd>/</kbd></label>
+      <button class="rand" id="rand" title="Play a random game">🎲 <span>Random</span></button>
+    </header>
+
+    <div class="layout">
+      <nav class="side" id="side" aria-label="Categories">
+        <button class="nv on" data-f="all"><i>🏠</i>Home<em id="n-all"></em></button>
+        <div class="nv-h">Categories</div>
+        <button class="nv" data-f="action"><i>💥</i>Action<em id="n-action"></em></button>
+        <button class="nv" data-f="arcade"><i>🕹️</i>Arcade<em id="n-arcade"></em></button>
+        <button class="nv" data-f="puzzle"><i>🧩</i>Puzzle &amp; Brain<em id="n-puzzle"></em></button>
+        <button class="nv" data-f="casual"><i>🎈</i>Casual &amp; Fun<em id="n-casual"></em></button>
+        <div class="side-foot">Made by <b>Ilias.H</b></div>
+      </nav>
+
+      <div class="content">
+        <section id="recent" hidden>
+          <h3>🕘 Continue playing</h3>
+          <div class="tiles" id="recentGrid"></div>
+        </section>
+        <section>
+          <h3><span id="gridTitle">All games</span> <small id="count"></small></h3>
+          <div class="tiles" id="grid">
+
+        <a class="tile pot" data-key="pot" data-cat="action" data-name="pot peak" data-new="1" href="pot-peak/" aria-label="POT PEAK">
+          <div class="art">
+            <div class="pp-sun"></div><div class="pp-mt"></div><div class="pp-mt2"></div>
+            <div class="pp-pot"><b>🧔</b></div><div class="pp-ham"></div><div class="pp-flag">🚩</div>
+          </div>
+          <span class="badge">NEW</span>
+          <span class="best" hidden>🏆 <b id="bestPot"></b></span>
+          <div class="meta"><b>POT PEAK</b><small>Climb with a hammer</small></div>
+        </a>
+
+        <a class="tile buddy big" data-key="buddy" data-cat="casual" data-name="buddy smash" data-new="1" href="buddy-smash/" aria-label="BUDDY SMASH">
+          <div class="art">
+<div class="bd-wall"></div><div class="bd-floor"></div>
+            <div class="bd-man">
+              <div class="bd-head"><i></i><i></i><b></b></div>
+              <div class="bd-torso"></div>
+              <div class="bd-arm l"></div><div class="bd-arm r"></div>
+              <div class="bd-leg l"></div><div class="bd-leg r"></div>
+            </div>
+            <div class="bd-bat">🏏</div>
+            <div class="bd-pow">POW!</div>
+          </div>
+          <span class="badge">NEW</span>
+          <span class="best" hidden>🏆 <b id="bestBuddy"></b></span>
+          <div class="meta"><b>BUDDY SMASH</b><small>Stress relief</small></div>
+        </a>
+        <a class="tile rubik big" data-key="rubik" data-cat="puzzle" data-name="rubik's cube" data-new="1" href="rubiks-cube/" aria-label="RUBIK'S CUBE">
+          <div class="art">
+<div class="rb-scene"><div class="rb-cube"><div class="rb-f fr"><i class="c3"></i><i class="c4"></i><i class="c3"></i><i class="c3"></i><i class="c4"></i><i class="c4"></i><i class="c1"></i><i class="c1"></i><i class="c4"></i></div><div class="rb-f bk"><i class="c3"></i><i class="c5"></i><i class="c4"></i><i class="c1"></i><i class="c0"></i><i class="c3"></i><i class="c2"></i><i class="c1"></i><i class="c0"></i></div><div class="rb-f rt"><i class="c4"></i><i class="c5"></i><i class="c5"></i><i class="c0"></i><i class="c4"></i><i class="c3"></i><i class="c3"></i><i class="c5"></i><i class="c5"></i></div><div class="rb-f lf"><i class="c4"></i><i class="c5"></i><i class="c1"></i><i class="c4"></i><i class="c0"></i><i class="c4"></i><i class="c0"></i><i class="c0"></i><i class="c0"></i></div><div class="rb-f tp"><i class="c1"></i><i class="c1"></i><i class="c4"></i><i class="c0"></i><i class="c3"></i><i class="c2"></i><i class="c3"></i><i class="c4"></i><i class="c1"></i></div><div class="rb-f bt"><i class="c4"></i><i class="c1"></i><i class="c5"></i><i class="c2"></i><i class="c3"></i><i class="c0"></i><i class="c5"></i><i class="c0"></i><i class="c3"></i></div></div></div>
+            <div class="rb-shadow"></div>
+          </div>
+          <span class="badge">NEW</span>
+          <span class="best" hidden>🏆 <b id="bestRubik"></b></span>
+          <div class="meta"><b>RUBIK'S CUBE</b><small>3D Puzzle</small></div>
+        </a>
+        <a class="tile drop4 big" data-key="drop4" data-cat="puzzle" data-name="drop four" data-new="1" href="drop-four/" aria-label="DROP FOUR">
+          <div class="art">
+<div class="d4-board">
+              <i class="r"></i><i class="y"></i><i class="r"></i><i class="y"></i><i class="r"></i><i class="y"></i><i class="r"></i>
+              <i></i><i class="r"></i><i class="y"></i><i class="r"></i><i class="y"></i><i class="y"></i><i></i>
+              <i></i><i></i><i class="r"></i><i class="y"></i><i class="r"></i><i class="r"></i><i></i>
+            </div>
+            <div class="d4-fall"></div>
+          </div>
+          <span class="badge">NEW</span>
+          <span class="best" hidden>🏆 <b id="bestD4"></b></span>
+          <div class="meta"><b>DROP FOUR</b><small>Strategy</small></div>
+        </a>
+        <a class="tile neon" data-key="neon" data-cat="action" data-name="neon drift" data-new="0" href="neon-drift/" aria-label="NEON DRIFT">
+          <div class="art">
+<div class="beam b1"></div>
+            <div class="beam b2"></div>
+            <div class="rock r1"></div>
+            <div class="rock r2"></div>
+            <div class="rock r3"></div>
+            <div class="ship"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestNeon"></b></span>
+          <div class="meta"><b>NEON DRIFT</b><small>Action</small></div>
+        </a>
+        <a class="tile cosmo" data-key="cosmo" data-cat="arcade" data-name="cosmo hop" data-new="0" href="cosmo-hop/" aria-label="COSMO HOP">
+          <div class="art">
+<div class="sun"></div>
+            <div class="plat p1"></div>
+            <div class="plat p2"></div>
+            <div class="plat p3"></div>
+            <div class="orb"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestCosmo"></b></span>
+          <div class="meta"><b>COSMO HOP</b><small>Platformer</small></div>
+        </a>
+        <a class="tile prism" data-key="prism" data-cat="puzzle" data-name="prism blocks" data-new="0" href="prism-blocks/" aria-label="PRISM BLOCKS">
+          <div class="art">
+<div class="mini" id="mini"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestPrism"></b></span>
+          <div class="meta"><b>PRISM BLOCKS</b><small>Puzzle</small></div>
+        </a>
+        <a class="tile slice" data-key="slice" data-cat="arcade" data-name="slice rush" data-new="0" href="slice-rush/" aria-label="SLICE RUSH">
+          <div class="art">
+<div class="sl-wrap">
+              <div class="sl-half a"></div>
+              <div class="sl-half b"></div>
+            </div>
+            <i class="sl-blade"></i>
+            <span
+              class="dr"
+              style="--x: -90px; --y: -50px; --c: #ffb347"
+            ></span>
+            <span class="dr" style="--x: 80px; --y: -60px; --c: #ff8a1f"></span>
+            <span class="dr" style="--x: -60px; --y: 70px; --c: #ffd27a"></span>
+            <span class="dr" style="--x: 100px; --y: 50px; --c: #ffb347"></span>
+            <span
+              class="dr"
+              style="--x: -20px; --y: -90px; --c: #ff8a1f"
+            ></span>
+            <span class="dr" style="--x: 30px; --y: 90px; --c: #ffd27a"></span>
+            <div class="bg-f f1"></div>
+            <div class="bg-f f2"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestSlice"></b></span>
+          <div class="meta"><b>SLICE RUSH</b><small>Reflex</small></div>
+        </a>
+        <a class="tile wall" data-key="wall" data-cat="action" data-name="don't hit the wall" data-new="0" href="dont-hit-the-wall/" aria-label="DON'T HIT THE WALL">
+          <div class="art">
+<div class="rd">
+              <svg
+                viewBox="0 0 470 240"
+                width="470"
+                height="240"
+                aria-hidden="true"
+              >
+                <defs>
+                  <path
+                    id="rdp"
+                    d="M -20 190 C 110 205, 150 70, 250 105 S 390 205, 500 60"
+                  />
+                </defs>
+                <use href="#rdp" class="rd-wall" />
+                <use href="#rdp" class="rd-curb-r" />
+                <use href="#rdp" class="rd-curb-w" />
+                <use href="#rdp" class="rd-road" />
+                <use href="#rdp" class="rd-dash" />
+              </svg>
+              <div class="rd-car"></div>
+            </div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestWall"></b></span>
+          <div class="meta"><b>DON'T HIT THE WALL</b><small>Racing</small></div>
+        </a>
+        <a class="tile bounce" data-key="bounce" data-cat="arcade" data-name="bounce bash" data-new="0" href="bounce-bash/" aria-label="BOUNCE BASH">
+          <div class="art">
+<div class="bb-bricks">
+              <i style="--c:#ff4d6d"></i><i style="--c:#ff9f43"></i><i style="--c:#ffd23f"></i><i style="--c:#4dff9a"></i><i style="--c:#4dc3ff"></i>
+              <i style="--c:#c77dff"></i><i style="--c:#ff4d6d"></i><i style="--c:#ff9f43"></i><i style="--c:#ffd23f"></i><i style="--c:#4dff9a"></i>
+            </div>
+            <div class="bb-ball"></div>
+            <div class="bb-pad"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestBounce"></b></span>
+          <div class="meta"><b>BOUNCE BASH</b><small>Arcade</small></div>
+        </a>
+        <a class="tile hyper" data-key="hyper" data-cat="action" data-name="hyper lane" data-new="0" href="hyper-lane/" aria-label="HYPER LANE">
+          <div class="art">
+<div class="hl-sun"></div>
+            <div class="hl-road"><i></i><i></i></div>
+            <div class="hl-ship"></div>
+            <div class="hl-block"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestHyper"></b></span>
+          <div class="meta"><b>HYPER LANE</b><small>3D Runner</small></div>
+        </a>
+        <a class="tile dash" data-key="dash" data-cat="arcade" data-name="djellaba dash" data-new="0" href="djellaba-dash/" aria-label="DJELLABA DASH">
+          <div class="art">
+<div class="dd-sun"></div>
+            <svg class="dd-city" viewBox="0 0 400 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+              <g fill="#b9764a"><rect x="10" y="62" width="50" height="58"/><rect x="70" y="40" width="22" height="80"/><rect x="66" y="36" width="30" height="6"/><path d="M70 36a11 11 0 0 1 22 0z"/><rect x="100" y="70" width="60" height="50"/><path d="M110 70a20 20 0 0 1 40 0z"/><rect x="170" y="56" width="56" height="64"/><rect x="236" y="30" width="22" height="90"/><rect x="232" y="26" width="30" height="6"/><path d="M236 26a11 11 0 0 1 22 0z"/><rect x="268" y="66" width="60" height="54"/><rect x="338" y="52" width="52" height="68"/></g>
+              <g fill="#7a4a30"><path d="M22 90v-10a5 5 0 0 1 10 0v10z"/><path d="M118 100v-10a5 5 0 0 1 10 0v10z"/><path d="M186 92v-10a5 5 0 0 1 10 0v10z"/><path d="M286 96v-10a5 5 0 0 1 10 0v10z"/><path d="M352 90v-10a5 5 0 0 1 10 0v10z"/></g>
+            </svg>
+            <div class="dd-flags"></div>
+            <div class="dd-ground"></div>
+            <div class="dd-block"></div>
+            <div class="dd-coin k1"></div>
+            <div class="dd-coin k2"></div>
+            <div class="dd-hero"><svg viewBox="0 -10 80 112" width="100%" height="100%"><path d="M24 46 Q40 40 56 46 L66 88 Q40 94 14 88 Z" fill="#2f6fd6"/><path d="M40 45 L40 91" stroke="#f2c14e" stroke-width="2.4"/><path d="M15 84 Q40 90 65 84" stroke="#f2c14e" stroke-width="2" fill="none"/><g fill="#f2c14e"><circle cx="40" cy="56" r="1.9"/><circle cx="40" cy="66" r="1.9"/><circle cx="40" cy="76" r="1.9"/></g><ellipse cx="40" cy="46" rx="23" ry="7" fill="#2458b0"/><path d="M16 42 C10 20 28 6 48 -6 C42 8 62 14 64 42 Z" fill="#2458b0" stroke="#17387a" stroke-width="1.5"/><ellipse cx="40" cy="31" rx="18" ry="20" fill="#17387a"/><ellipse cx="40" cy="32" rx="14.5" ry="16.5" fill="#c98e5e"/><path d="M40 29 Q43 35 39 36" stroke="#783c1e" stroke-width="1.2" fill="none"/><g><ellipse cx="34" cy="29.5" rx="3.6" ry="3" fill="#fff"/><ellipse cx="46" cy="29.5" rx="3.6" ry="3" fill="#fff"/><circle cx="35.4" cy="29.5" r="1.8" fill="#1b1020"/><circle cx="47.4" cy="29.5" r="1.8" fill="#1b1020"/></g><path d="M30 24.5 L38 24 M42 24 L50 24.5" stroke="#1b1020" stroke-width="2" stroke-linecap="round"/><path d="M26 36 Q40 64 54 36 Q48 46 40 47 Q32 46 26 36 Z" fill="#2a1a14"/><path d="M30 38 Q40 32 50 38 Q40 41 30 38 Z" fill="#2a1a14"/><g fill="#2f6fd6"><ellipse cx="24" cy="62" rx="6.5" ry="12" transform="rotate(14 26 52)"/><ellipse cx="56" cy="62" rx="6.5" ry="12" transform="rotate(-14 54 52)"/></g><g fill="#c98e5e"><circle cx="21" cy="74" r="3.8"/><circle cx="59" cy="74" r="3.8"/></g><g fill="#f2b134"><path d="M24 96 Q26 88 36 90 Q44 88 48 92 Q42 97 24 96Z"/><path d="M40 96 Q42 88 52 90 Q60 88 64 92 Q58 97 40 96Z"/></g></svg></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestDash"></b></span>
+          <div class="meta"><b>DJELLABA DASH</b><small>Platformer</small></div>
+        </a>
+        <a class="tile dial" data-key="dial" data-cat="puzzle" data-name="dial in" data-new="0" href="dial-in/" aria-label="DIAL IN">
+          <div class="art">
+<div class="dl-ring r1"></div><div class="dl-ring r2"></div><div class="dl-ring r3"></div>
+            <div class="dl-dot"></div>
+            <div class="dl-sw s1"></div><div class="dl-sw s2"></div>
+            <div class="dl-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestDial"></b></span>
+          <div class="meta"><b>DIAL IN</b><small>Memory</small></div>
+        </a>
+        <a class="tile falafel" data-key="falafel" data-cat="casual" data-name="yalla falafel" data-new="0" href="yalla-falafel/" aria-label="YALLA FALAFEL">
+          <div class="art">
+<div class="fl-ball"></div>
+            <span class="fl-e e1">🧆</span><span class="fl-e e2">🥙</span><span class="fl-e e3">🍩</span><span class="fl-e e4">🥖</span><span class="fl-e e5">🧆</span>
+            <div class="fl-wave"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestFalafel"></b></span>
+          <div class="meta"><b>YALLA FALAFEL</b><small>Clicker</small></div>
+        </a>
+        <a class="tile world" data-key="world" data-cat="puzzle" data-name="world quiz" data-new="0" href="world-quiz/" aria-label="WORLD QUIZ">
+          <div class="art">
+<div class="wq-globe"><i></i></div>
+            <div class="wq-time">14:59</div>
+            <span class="wq-c c1">France</span><span class="wq-c c2">Japan</span><span class="wq-c c3">Brasil</span><span class="wq-c c4">Maroc</span><span class="wq-c c5">Kenya</span>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestWorld"></b></span>
+          <div class="meta"><b>WORLD QUIZ</b><small>Quiz</small></div>
+        </a>
+        <a class="tile roll" data-key="roll" data-cat="arcade" data-name="roll rush" data-new="0" href="roll-rush/" aria-label="ROLL RUSH">
+          <div class="art">
+<div class="rr-sky"></div>
+            <div class="rr-track"><i></i></div>
+            <div class="rr-gem g1"></div><div class="rr-gem g2"></div><div class="rr-gem g3"></div>
+            <div class="rr-ball"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestRoll"></b></span>
+          <div class="meta"><b>ROLL RUSH</b><small>3D Arcade</small></div>
+        </a>
+        <a class="tile bullseye" data-key="bullseye" data-cat="action" data-name="bullseye blitz" data-new="0" href="bullseye-blitz/" aria-label="BULLSEYE BLITZ">
+          <div class="art">
+<div class="bb-awning"></div>
+            <div class="bb-rail"></div>
+            <div class="bb-disc"></div>
+            <div class="bb-bird"></div>
+            <div class="bb-balloon b1"></div>
+            <div class="bb-balloon b2"></div>
+            <div class="bb-cross"></div>
+            <div class="bb-pop">+100</div>
+            <div class="bb-counter"></div>
+          </div>
+          
+          <span class="best" hidden>🏆 <b id="bestBull"></b></span>
+          <div class="meta"><b>BULLSEYE BLITZ</b><small>Shooter</small></div>
+        </a>
+        <a class="tile snake" data-key="snake" data-cat="arcade" data-name="snake studio" data-new="1" href="snake-studio/" aria-label="SNAKE STUDIO">
+          <div class="art">
+<div class="sn-grid"></div>
+            <div class="sn-fruit">🍎</div>
+            <div class="sn-seg s0"></div><div class="sn-seg s1"></div><div class="sn-seg s2"></div><div class="sn-seg s3"></div><div class="sn-seg s4"></div><div class="sn-seg s5"></div><div class="sn-seg s6"></div><div class="sn-seg s7"></div><div class="sn-seg s8"></div>
+            <div class="sn-head"><i></i><i></i></div>
+            <div class="sn-badge">⚡</div>
+          </div>
+          <span class="badge">NEW</span>
+          <span class="best" hidden>🏆 <b id="bestSnake"></b></span>
+          <div class="meta"><b>SNAKE STUDIO</b><small>Custom</small></div>
+        </a>
+          </div>
+          <p class="empty" id="empty" hidden>No game found 😕 — try another word.</p>
+        </section>
+        <footer class="foot-note">
+          <div>Keyboard, mouse or touch · Best scores are saved on this device</div>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="hub.js"></script>
+  </body>
+</html>

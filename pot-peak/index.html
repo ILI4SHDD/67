@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>POT PEAK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="cv"></canvas>
+
+    <div class="hud" id="hud">
+      <a class="ib" href="../" aria-label="Back to hub">◀</a>
+      <div class="stats">
+        <div class="alt"><b id="alt">0</b><small>m</small></div>
+        <div class="sub"><span>BEST <b id="best">0</b> m</span><span>⏱ <b id="time">0:00</b></span><span>💥 <b id="falls">0</b></span></div>
+      </div>
+      <button class="ib" id="resetBtn" aria-label="Restart" title="Back to the start (R)">↺</button>
+      <button class="ib" id="setBtn" aria-label="Customize" title="Customize">🎨</button>
+    </div>
+    <div class="meter" aria-hidden="true"><i id="mfill"></i><i id="mbest"></i><span>⛳</span></div>
+    <div class="toast" id="toast"></div>
+
+    <div class="overlay" id="intro">
+      <div class="panel">
+        <div class="logo">POT<span>PEAK</span></div>
+        <p class="lead">Move your mouse (or finger) to swing the hammer.<br />Hook it on the rocks and pull yourself up the mountain.</p>
+        <p class="warn">There are no checkpoints. Every fall is real.</p>
+        <div class="row"><button class="btn main" id="startBtn">CLIMB ▶</button><button class="btn" id="introSet">🎨 Customize</button></div>
+        <p class="tip">Tip: plant the hammer ahead, then sweep it back to push yourself forward. Swing it over your head to reach the next ledge.</p>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="win">
+      <div class="panel">
+        <div class="flagbig">🚩</div>
+        <h2>YOU MADE IT!</h2>
+        <p id="winSub"></p>
+        <div class="row"><button class="btn main" id="againBtn">CLIMB AGAIN</button><button class="btn" id="winClose">Stay up here</button></div>
+      </div>
+    </div>
+
+    <div class="overlay hidden" id="panel">
+      <div class="sheet">
+        <div class="sh-head"><h2>🎨 Customize</h2><button class="ib" id="closePanel" aria-label="Close">✕</button></div>
+        <div class="lbl">Face</div>
+        <div class="face-row">
+          <canvas id="facePv" width="96" height="96"></canvas>
+          <div>
+            <label class="btn main up">📷 Upload a picture<input type="file" id="headFile" accept="image/*" hidden /></label>
+            <button class="btn" id="faceDef">🧔 Default face</button>
+          </div>
+        </div>
+        <div class="emoji-grid" id="emojis"></div>
+        <div class="lbl">Hammer</div>
+        <div class="chips" id="hammers"></div>
+        <div class="lbl">Hammer length</div>
+        <div class="chips" id="lens"><button data-v="short">Short</button><button data-v="normal">Normal</button><button data-v="long">Long</button></div>
+        <div class="lbl">Grip on rocks</div>
+        <div class="chips" id="grips"><button data-v="grippy">🧤 Grippy</button><button data-v="normal">Normal</button><button data-v="slippery">🧊 Slippery</button></div>
+        <div class="lbl">Hammer speed</div>
+        <div class="chips" id="speeds"><button data-v="calm">Calm</button><button data-v="normal">Normal</button><button data-v="wild">Wild</button></div>
+        <div class="lbl">Gravity</div>
+        <div class="chips" id="gravs"><button data-v="1">🌍 Earth</button><button data-v="0.55">🌙 Moon</button><button data-v="1.5">🪐 Heavy</button></div>
+        <div class="lbl">Colors</div>
+        <div class="pick"><label>Pot<input type="color" id="potC" /></label><label>Skin<input type="color" id="skinC" /></label></div>
+        <label class="sw"><input type="checkbox" id="sound" /><i></i> Sound</label>
+        <div class="keys">Changing hammer, length or gravity restarts your climb. Your pictures stay on this device.</div>
+        <button class="btn main" id="doneBtn">DONE</button>
+      </div>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
