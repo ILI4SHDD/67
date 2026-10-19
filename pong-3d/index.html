@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>PONG 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<a class="back" href="../">◀ Menu</a>
+
+<div id="hud" class="hud" hidden>
+  <div class="score"><span class="who you">YOU</span><b id="sYou">0</b><i>:</i><b id="sAi">0</b><span class="who ai">AI</span></div>
+  <div class="rally" id="rally">RALLY 0</div>
+  <div class="btns"><button id="pauseBtn" aria-label="Pause">❚❚</button><button id="muteBtn" aria-label="Sound">🔊</button></div>
+</div>
+<div id="center" class="center"></div>
+<div id="hint" class="hint" hidden>Move your mouse or finger to steer · arrows / WASD also work</div>
+
+<section id="menu" class="panel show">
+  <h1 class="logo">PONG<span>3D</span></h1>
+  <p class="tag">Down the tunnel. Past the AI. First to score wins.</p>
+  <div class="opts">
+    <div class="opt"><span>AI level</span><div class="chips" data-k="diff"><button data-v="0">Easy</button><button data-v="1" class="on">Normal</button><button data-v="2">Hard</button></div></div>
+    <div class="opt"><span>First to</span><div class="chips" data-k="goal"><button data-v="5">5</button><button data-v="7" class="on">7</button><button data-v="11">11</button></div></div>
+    <div class="opt"><span>Theme</span><div class="chips" data-k="theme"><button data-v="neon" class="on">Neon</button><button data-v="sunset">Sunset</button><button data-v="toxic">Toxic</button></div></div>
+  </div>
+  <button id="play" class="big">PLAY ▶</button>
+  <p class="small">Longest rally: <b id="bestRally">0</b></p>
+</section>
+
+<section id="pause" class="panel">
+  <h2>PAUSED</h2>
+  <div class="row"><button id="resume" class="big">RESUME</button><button id="quit" class="big alt">QUIT</button></div>
+</section>
+
+<section id="over" class="panel">
+  <h2 id="overTitle">YOU WIN</h2>
+  <p class="tag" id="overSub"></p>
+  <div class="row"><button id="again" class="big">PLAY AGAIN ↻</button><button id="toMenu" class="big alt">MENU</button></div>
+</section>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>

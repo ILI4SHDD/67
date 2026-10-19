@@ -1428,3 +1428,34 @@ main {
 .pp-ham { position: absolute; left: 168px; top: 70px; width: 8px; height: 90px; background: #92400e; border-radius: 4px; transform: rotate(40deg); transform-origin: bottom; }
 .pp-ham::before { content: ""; position: absolute; top: -8px; left: -12px; width: 32px; height: 16px; background: #94a3b8; border-radius: 3px; }
 .pp-flag { position: absolute; right: 70px; top: 40px; font-size: 30px; }
+
+/* ---------- SKY STACK ---------- */
+.sky .art { background: linear-gradient(180deg, #1e3a8a, #f472b6 80%, #fdba74); overflow: hidden; }
+.ss-cloud { position: absolute; top: 14%; left: -30%; width: 46%; height: 16%; border-radius: 99px; background: rgba(255,255,255,.55); animation: ssc 9s linear infinite; }
+@keyframes ssc { to { transform: translateX(360%); } }
+.ss-b { position: absolute; left: 50%; height: 11%; border-radius: 4px; transform: translateX(-50%); box-shadow: inset 0 -5px 0 rgba(0,0,0,.18); }
+.ss-b1 { bottom: 6%; width: 52%; background: #fb7185; }
+.ss-b2 { bottom: 17%; width: 46%; background: #f472b6; margin-left: 3%; }
+.ss-b3 { bottom: 28%; width: 40%; background: #c084fc; margin-left: -2%; }
+.ss-b4 { bottom: 39%; width: 36%; background: #818cf8; margin-left: 1%; }
+.ss-move { position: absolute; bottom: 50%; left: 50%; width: 34%; height: 11%; border-radius: 4px; background: #38bdf8; box-shadow: inset 0 -5px 0 rgba(0,0,0,.18), 0 0 18px #38bdf8; animation: ssm 1.7s ease-in-out infinite alternate; }
+@keyframes ssm { from { transform: translateX(-130%); } to { transform: translateX(30%); } }
+
+/* PETIT BAC tile art */
+.petit .art{background:linear-gradient(135deg,#2a0f4d,#7a1f6b 60%,#ff9f1c)}
+.pb-l{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:900 96px/1 Orbitron,sans-serif;color:#fff;text-shadow:0 0 28px #ff9f1c}
+.pb-l::after{content:'B';animation:pbl 2.4s steps(1) infinite}
+@keyframes pbl{0%{content:'K'}20%{content:'R'}40%{content:'A'}60%{content:'M'}80%{content:'B'}}
+.pb-c{position:absolute;height:14px;border-radius:8px;background:rgba(255,255,255,.75);left:10%;animation:pbc 3s ease-in-out infinite}
+.pb-c1{top:14%;width:34%}.pb-c2{top:14%;left:56%;width:34%;animation-delay:.3s}.pb-c3{bottom:14%;width:80%;animation-delay:.6s}
+@keyframes pbc{0%,100%{opacity:.35;transform:scaleX(.7)}50%{opacity:1;transform:scaleX(1)}}
+
+/* PONG 3D tile art */
+.pong .art{background:radial-gradient(ellipse at 50% 50%,#1a1250,#07041a 70%);perspective:500px;overflow:hidden}
+.pg-tun{position:absolute;left:50%;top:50%;width:46%;height:52%;transform:translate(-50%,-50%);border:2px solid #2f44ff;box-shadow:0 0 0 14px rgba(47,68,255,.18),0 0 0 30px rgba(47,68,255,.12),0 0 0 50px rgba(47,68,255,.07),inset 0 0 24px rgba(47,68,255,.5)}
+.pg-ai{position:absolute;left:50%;top:50%;width:16%;height:14%;margin:-7% 0 0 -8%;background:rgba(255,47,185,.35);border:2px solid #ff2fb9;animation:pga 2.4s ease-in-out infinite}
+.pg-you{position:absolute;left:50%;bottom:12%;width:30%;height:22%;margin-left:-15%;background:rgba(25,230,255,.28);border:2px solid #19e6ff;box-shadow:0 0 18px #19e6ff;animation:pgy 2.4s ease-in-out infinite}
+.pg-ball{position:absolute;left:50%;top:50%;width:9%;aspect-ratio:1;margin:-4.5% 0 0 -4.5%;border-radius:50%;background:#fff;box-shadow:0 0 16px #fff;animation:pgb 2.4s ease-in infinite}
+@keyframes pga{50%{transform:translateX(14px)}}
+@keyframes pgy{50%{transform:translateX(-18px)}}
+@keyframes pgb{0%{transform:scale(.5) translate(0,0)}50%{transform:scale(2.4) translate(20px,40px)}100%{transform:scale(.5) translate(0,0)}}

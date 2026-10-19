@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<title>SKY STACK — 67.fun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<a class="back" href="../">← Hub</a>
+<div class="hud" id="hud" hidden>
+  <div class="score" id="score">0</div>
+  <div class="sub"><span id="combo"></span></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<div class="panel" id="menu">
+  <h1>SKY<span>STACK</span></h1>
+  <p class="tag">Tap at the right moment. Stack to the clouds.</p>
+  <div class="opts">
+    <div class="row"><label>Palette</label><div class="chips" id="optPalette"></div></div>
+    <div class="row"><label>Block shape</label><div class="chips" id="optShape"></div></div>
+    <div class="row"><label>Material</label><div class="chips" id="optMat"></div></div>
+    <div class="row"><label>Speed</label><div class="chips" id="optSpeed"></div></div>
+  </div>
+  <button class="play" id="play">PLAY</button>
+  <p class="hint">Space / click / tap to drop · Perfect drops grow your tower</p>
+  <p class="best">Best: <b id="best">0</b></p>
+</div>
+
+<div class="panel" id="over" hidden>
+  <h2>TOWER FELL!</h2>
+  <div class="big" id="finalScore">0</div>
+  <p class="best" id="newBest" hidden>🏆 New record!</p>
+  <p class="best">Best: <b id="best2">0</b> · Perfects: <b id="perfects">0</b></p>
+  <div class="btns"><button class="play" id="again">AGAIN</button><button class="ghost" id="toMenu">MENU</button></div>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>

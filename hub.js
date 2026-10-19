@@ -18,6 +18,9 @@ const BESTS = [
   ['bestD4', 'dropfour-wins', (v) => v + ' wins'], ['bestRubik', 'rubik-best', (v) => Math.floor(v / 60000) + ':' + ((v / 1000) % 60).toFixed(1).padStart(4, '0')],
   ['bestBuddy', 'buddy-best', fmtN],
   ['bestPot', 'potpeak-best', (v) => Math.round(v) + ' m'],
+  ['bestSky', 'skystack-best', (v) => v + ' floors'],
+  ['bestPetit', 'petitbac-rounds', (v) => v + ' rounds'],
+  ['bestPong', 'pong3d-best', (v) => v + ' rally'],
 ];
 BESTS.forEach(([id, key, f]) => { const b = document.getElementById(id); if (!b) return; const v = readBest(key); if (v > 0) { b.textContent = f(v); b.closest('.best').hidden = false; } });
 
@@ -35,7 +38,7 @@ const WIPE = {
   hyper: 'linear-gradient(180deg,#1a0a3a,#ff2fb9)', dash: 'linear-gradient(180deg,#ff8f4d,#f2c14e)', dial: 'linear-gradient(180deg,#7c5cff,#22d3ee)',
   falafel: 'linear-gradient(180deg,#0d3b8c,#ffc83a)', world: 'linear-gradient(180deg,#17408a,#34d399)', roll: 'linear-gradient(180deg,#2a0a55,#22d3ee)',
   bullseye: 'linear-gradient(180deg,#d83a3a,#5b3018)', snake: 'linear-gradient(180deg,#0b1020,#4ade80)',
-  drop4: 'linear-gradient(180deg,#1d4ed8,#facc15)', rubik: 'linear-gradient(180deg,#16a34a,#d62839)', buddy: 'linear-gradient(180deg,#c9784f,#7c3aed)', pot: 'linear-gradient(180deg,#38bdf8,#475569)',
+  drop4: 'linear-gradient(180deg,#1d4ed8,#facc15)', rubik: 'linear-gradient(180deg,#16a34a,#d62839)', buddy: 'linear-gradient(180deg,#c9784f,#7c3aed)', pot: 'linear-gradient(180deg,#38bdf8,#475569)', sky: 'linear-gradient(180deg,#1e3a8a,#f472b6)', petit: 'linear-gradient(180deg,#ff9f1c,#ff4fa3)', pong: 'linear-gradient(180deg,#07041a,#2f44ff)',
 };
 
 // ---------- filtering / search ----------
